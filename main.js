@@ -31,7 +31,7 @@ function activateMenuAtCurrentSetion(section) {
   if (sectionBoundaries) {
     menuElement.classList.add('active')
   }
-  // 2:31:00
+
 }
 
 
