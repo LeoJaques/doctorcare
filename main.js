@@ -13,7 +13,7 @@ function onScroll() {
 
 function activateMenuAtCurrentSetion(section) {
   const targetLine = scrollY + innerHeight / 2
-  
+
   const sectionTop = section.offsetTop
   const sectionHeight = section.offsetHeight
   const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop
@@ -21,22 +21,21 @@ function activateMenuAtCurrentSetion(section) {
   const sectionEndsAt = sectionTop + sectionHeight
   const sectionEndPassedTargetLine = sectionEndsAt <= targetLine
 
-  const sectionBoundaries = 
-  sectionTopReachOrPassedTargetLine && sectionEndPassedTargetLine
+  const sectionBoundaries =
+    sectionTopReachOrPassedTargetLine && sectionEndPassedTargetLine
 
-  const sectionId = section.getAtribute('id')
+  const sectionId = section.getAttribute('id')
   const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
 
   menuElement.classList.remove('active')
   if (sectionBoundaries) {
     menuElement.classList.add('active')
   }
-
 }
 
-
 function showNavOnScroll() {
-  if (scrollY >= 0) {
+  let navigation = document.getElementById('navigation')
+  if (scrollY > 0) {
     navigation.classList.add('scroll')
   } else {
     navigation.classList.remove('scroll')
